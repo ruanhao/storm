@@ -151,7 +151,7 @@ def update(name, connection_uri="", id_file="", o=[], config=None):
     storm_ = get_storm_instance(config)
     settings = {}
 
-    if id_file != "": 
+    if id_file != "":
         settings['identityfile'] = id_file
 
     for option in o:
@@ -224,10 +224,10 @@ def list(config=None):
                                 result += " {0}".format(custom_options)
                             extra = True
 
-                            if isinstance(value, collections.Sequence):
+                            if isinstance(value, collections.abc.Sequence):
                                 if isinstance(value, builtins.list):
                                     value = ",".join(value)
-                                    
+
                             result += "{0}={1} ".format(key, value)
                     if extra:
                         result = result[0:-1]
@@ -315,4 +315,3 @@ def web(port, debug=False, theme="modern", ssh_config=None):
 
 if __name__ == '__main__':
     sys.exit(main())
-
